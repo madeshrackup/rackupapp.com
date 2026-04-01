@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { Apple, Play, Copy } from "lucide-react";
 
 // Brand Assets
-const BRAND_LOGO = "https://customer-assets.emergentagent.com/job_f795dca2-df4b-4fd0-85a8-0159048afdf1/artifacts/ley27efs_RackUp%20Logo.png";
+const BRAND_LOGO = "https://customer-assets.emergentagent.com/job_eight-ball-app/artifacts/oep3gyke_RackUp%20Logo-2.png";
 const HERO_BG = "https://images.unsplash.com/photo-1520507215037-061ed0f37178?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwyfHw4JTIwYmFsbCUyMHBvb2wlMjBjaW5lbWF0aWN8ZW58MHx8fHwxNzc1MDA3NDIzfDA&ixlib=rb-4.1.0&q=85";
 
 // Animation variants
