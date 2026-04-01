@@ -1,6 +1,6 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import "@/App.css";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Apple, Play, Copy } from "lucide-react";
 
 // Brand Assets
@@ -42,6 +42,16 @@ const AnimatedSection = ({ children, className = "" }) => {
 
 // Hero Section
 const HeroSection = () => {
+  const [showLogo, setShowLogo] = useState(false);
+
+  useEffect(() => {
+    // Fade out tagline and reveal logo after 2 seconds
+    const timer = setTimeout(() => {
+      setShowLogo(true);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section className="hero-section" data-testid="hero-section">
       <div className="hero-background">
@@ -49,45 +59,66 @@ const HeroSection = () => {
         <div className="hero-overlay" />
       </div>
       
-      <motion.div 
-        className="hero-content"
-        variants={staggerContainer}
-        initial="hidden"
-        animate="visible"
-      >
-        <motion.img 
-          src={BRAND_LOGO} 
-          alt="Rackup Logo" 
-          className="hero-logo"
-          variants={fadeUp}
-          transition={{ duration: 0.6 }}
-          data-testid="hero-logo"
-        />
-        
-        <motion.h1 
-          className="hero-tagline"
-          variants={fadeUp}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          data-testid="hero-tagline"
-        >
-          Your game, your rules.
-        </motion.h1>
-        
-        <motion.div 
-          className="hero-buttons"
-          variants={fadeUp}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <a href="#" className="store-button" data-testid="hero-app-store-btn">
-            <Apple />
-            <span>App Store</span>
-          </a>
-          <a href="#" className="store-button" data-testid="hero-play-store-btn">
-            <Play />
-            <span>Google Play</span>
-          </a>
-        </motion.div>
-      </motion.div>
+      <div className="hero-content">
+        <AnimatePresence mode="wait">
+          {!showLogo ? (
+            <motion.h1 
+              key="tagline"
+              className="hero-tagline-intro"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }}
+              transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+              data-testid="hero-tagline"
+            >
+              Your game, your rules.
+            </motion.h1>
+          ) : (
+            <motion.div
+              key="logo-content"
+              className="hero-logo-container"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+            >
+              <motion.img 
+                src={BRAND_LOGO} 
+                alt="Rackup Logo" 
+                className="hero-logo"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                data-testid="hero-logo"
+              />
+              
+              <motion.p
+                className="hero-subtitle"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+              >
+                Your game, your rules.
+              </motion.p>
+              
+              <motion.div 
+                className="hero-buttons"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.7 }}
+              >
+                <a href="#" className="store-button" data-testid="hero-app-store-btn">
+                  <Apple />
+                  <span>App Store</span>
+                </a>
+                <a href="#" className="store-button" data-testid="hero-play-store-btn">
+                  <Play />
+                  <span>Google Play</span>
+                </a>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </section>
   );
 };
