@@ -1,0 +1,95 @@
+{
+  "theme": "dark",
+  "archetype": "5",
+  "archetype_name": "Jewel & Luxury (Cinematic & High-Contrast)",
+  "design_philosophy": "Sleek, elite, and 'Street-Pro' aesthetic. Think luxury watch marketing for the sport of billiards. Everything is obsidian black, pure white, with high contrast. Deep shadows, subtle glass textures, crisp typography.",
+  "colors": {
+    "background": "#050505",
+    "surface": "#0A0A0A",
+    "surface_glass": "rgba(10, 10, 10, 0.6)",
+    "border": "rgba(255, 255, 255, 0.1)",
+    "text_primary": "#FFFFFF",
+    "text_secondary": "#A1A1AA",
+    "accent": "#FFFFFF",
+    "accent_subtle": "#27272A"
+  },
+  "typography": {
+    "heading_font": "Unbounded, sans-serif",
+    "body_font": "Outfit, sans-serif",
+    "rules": [
+      "H1 must be cinematic: tracking-tighter, text-5xl to text-6xl+ (fluid clamp where possible).",
+      "Overlines must be uppercase, tracking-[0.2em], text-xs text-white/60.",
+      "Use font-black for major numbers and the main brand hook.",
+      "Absolutely no generic sans-serifs (Inter, Roboto) for headings."
+    ]
+  },
+  "layout_and_spacing": {
+    "spacing_scale": "Generous (p-8 to p-16 for containers)",
+    "bento_grid": "grid-cols-1 md:grid-cols-12 gap-6",
+    "card_style": "bg-[#0A0A0A] border border-white/10 rounded-2xl p-8 relative overflow-hidden",
+    "glassmorphism": "backdrop-blur-xl bg-black/60 border border-white/10"
+  },
+  "media_urls": {
+    "brand_logo_text_1": "https://customer-assets.emergentagent.com/job_f795dca2-df4b-4fd0-85a8-0159048afdf1/artifacts/0wuqswpg_Rackup%20Heading.png",
+    "brand_logo_text_2": "https://customer-assets.emergentagent.com/job_f795dca2-df4b-4fd0-85a8-0159048afdf1/artifacts/9xfwm04p_Rackup%20Heading%202.png",
+    "brand_logo_icon": "https://customer-assets.emergentagent.com/job_f795dca2-df4b-4fd0-85a8-0159048afdf1/artifacts/ley27efs_RackUp%20Logo.png",
+    "hero_background": "https://images.unsplash.com/photo-1520507215037-061ed0f37178?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwyfHw4JTIwYmFsbCUyMHBvb2wlMjBjaW5lbWF0aWN8ZW58MHx8fHwxNzc1MDA3NDIzfDA&ixlib=rb-4.1.0&q=85",
+    "billiard_lifestyle": "https://images.unsplash.com/photo-1580186048606-73e047f28e43?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODF8MHwxfHNlYXJjaHwzfHxsdXh1cnklMjBiaWxsaWFyZCUyMHBvb2wlMjBwbGF5ZXIlMjBjaW5lbWF0aWN8ZW58MHx8fHwxNzc1MDA3NDEyfDA&ixlib=rb-4.1.0&q=85",
+    "dark_phone_mockup": "https://images.unsplash.com/photo-1720135885007-454165745e21?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjh8MHwxfHNlYXJjaHwxfHxkYXJrJTIwbW9kZSUyMG1vYmlsZSUyMGFwcCUyMG1vY2t1cHxlbnwwfHx8fDE3NzUwMDc0MjJ8MA&ixlib=rb-4.1.0&q=85"
+  },
+  "components_and_sections": [
+    {
+      "name": "Global Shell",
+      "rules": "No Navigation Bar. Background color pure #050505. Smooth scrolling enabled (lenis). Use lucide-react for icons. Dark mode only.",
+      "implementation_notes": "Use standard HTML/Tailwind for layout structure. No Shadcn full-page wrappers to allow creative layouts."
+    },
+    {
+      "name": "Hero Section",
+      "layout": "min-h-screen flex flex-col items-center justify-center text-center relative px-6 overflow-hidden",
+      "visuals": "Background uses 'hero_background' with a heavy bg-black/80 overlay to ensure text readability.",
+      "content": "Top: The 'brand_logo_icon' (8-ball logo, max-w-[80px]). Center: H1 'Every frame. Every win. Every stat. Rackup.'. Below: App Store / Play Store styled as luxury solid white buttons with black text and lucide icons.",
+      "animations": "Framer motion staggered fade-up for all text elements. Slow parallax on background image."
+    },
+    {
+      "name": "Graphic Showcase",
+      "layout": "py-24 flex justify-center relative w-full overflow-hidden",
+      "visuals": "Build a CSS-based smartphone mockup (rounded-[3rem], border-8 border-white/5, bg-[#0a0a0a] shadow-2xl relative w-[320px] h-[650px] overflow-hidden) OR use the 'dark_phone_mockup' as an image. Inside the CSS mockup, render a fake 'Leaderboard UI' using HTML/Tailwind: tiny avatars, high-contrast rows, neon white text, simulating a luxury sports app.",
+      "animations": "Framer Motion 'float' animation (y: [-15, 15, -15], infinite, 6s ease-in-out)."
+    },
+    {
+      "name": "The Rackup Advantage (Bento Box)",
+      "layout": "max-w-6xl mx-auto px-6 py-24",
+      "grid": "grid grid-cols-1 md:grid-cols-12 gap-6",
+      "content": [
+        {
+          "title": "Pro-Grade Standings",
+          "span": "col-span-1 md:col-span-8 row-span-2",
+          "visual": "Mockup of a sleek standings table inside the card. Use a dark, stripped-down Shadcn Table look.",
+          "style": "bg-[#0A0A0A] border border-white/10 rounded-2xl p-8"
+        },
+        {
+          "title": "Instant Entry",
+          "span": "col-span-1 md:col-span-4 row-span-1",
+          "visual": "Large typography displaying a 6-digit room code with a 'copy' icon. E.g., 'R K P - 8 8 2'.",
+          "style": "bg-[#0A0A0A] border border-white/10 rounded-2xl p-8 flex flex-col justify-center"
+        },
+        {
+          "title": "Career Stats",
+          "span": "col-span-1 md:col-span-4 row-span-1",
+          "visual": "A stylized, high-contrast chart or stats grid showing win-rate. Use simple CSS bars or large stat numbers (e.g., '78% Win Rate').",
+          "style": "bg-white text-black rounded-2xl p-8 (Inverted contrast card for impact)"
+        }
+      ]
+    },
+    {
+      "name": "Footer",
+      "layout": "py-32 border-t border-white/5 text-center relative overflow-hidden flex flex-col items-center justify-center",
+      "content": "Support link (mailto:support@rackupapp.com), About blurb, Privacy Policy / Terms placeholders. Massive 'RACKUP' watermark text (text-[15vw] font-black text-white/[0.02]) spanning the background.",
+      "animations": "Framer motion reveal on scroll."
+    }
+  ],
+  "accessibility_and_testing": {
+    "testing": "All interactive elements, buttons, and major sections MUST have 'data-testid' attributes (e.g., 'data-testid=\"hero-app-store-btn\"', 'data-testid=\"bento-card-standings\"').",
+    "contrast": "Ensure all text against the #050505 background passes WCAG AA. Use text-shadow if placed over an image."
+  }
+}
