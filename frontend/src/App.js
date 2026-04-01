@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import "@/App.css";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { Apple, Play, Copy } from "lucide-react";
+import { Apple, Copy } from "lucide-react";
 
 // Brand Assets
 const BRAND_LOGO = "https://customer-assets.emergentagent.com/job_eight-ball-app/artifacts/xvtie9ac_edited.png";
@@ -106,13 +106,17 @@ const HeroSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.7 }}
               >
-                <a href="#" className="store-button" data-testid="hero-app-store-btn">
-                  <Apple />
-                  <span>App Store</span>
+                <a href="#" className="store-badge" data-testid="hero-app-store-btn">
+                  <img 
+                    src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" 
+                    alt="Download on the App Store"
+                  />
                 </a>
-                <a href="#" className="store-button" data-testid="hero-play-store-btn">
-                  <Play />
-                  <span>Google Play</span>
+                <a href="#" className="store-badge" data-testid="hero-play-store-btn">
+                  <img 
+                    src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" 
+                    alt="Get it on Google Play"
+                  />
                 </a>
               </motion.div>
             </motion.div>
